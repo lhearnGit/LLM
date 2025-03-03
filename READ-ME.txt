@@ -1,3 +1,5 @@
+This Project uses Python 3.11 for compatibility with PyTorch Libraries.
+
 
 This Project uses the following PyTorch version, the install command is below
 
