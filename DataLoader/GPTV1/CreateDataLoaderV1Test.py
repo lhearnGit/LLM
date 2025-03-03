@@ -9,5 +9,5 @@ first_batch = next(data_iterator)
 second_batch = next(data_iterator)
 
 
-print('First Batch : ' , first_batch) 
-print('Second Batch : ' , second_batch) 
+print('First Batch : \n ' , first_batch) 
+print('\nSecond Batch : \n ' , second_batch) 
