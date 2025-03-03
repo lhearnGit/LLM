@@ -4,7 +4,7 @@ import torch
 from torch.utils.data import Dataset,DataLoader
 
 class GPTDatasetV1(Dataset):
-    def __init__(self, txt, tokenizer, max_length, stride):
+    def __init__(self, txt, tokenizer, max_length, stride):#Max Length - The number of tokens in a row - Size of Batch of Text, Stride how far the "Selection" moves per step 
         self.input_ids = []
         self.target_ids = []
         token_ids = tokenizer.encode(txt)
