@@ -29,3 +29,9 @@ encoded = tokenizer.encode(textSample)
 print("Encoded Text :", encoded)
 decoded = tokenizer.decode(encoded)
 print("Decoded Text: ", decoded)
+
+
+#This will fail and throw a Key Error on "Hello, weather and Glacial", the Tokenizer cannot handle unknowns
+#nonSourceTextSample = "Hello, the weather is Glacial" 
+#encodeTest = tokenizer.encode(nonSourceTextSample)
+#print("Encoded : ", encodeTest)
