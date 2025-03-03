@@ -43,7 +43,7 @@ print("Decoded : ", decodeTest)
 #should out put <|unk|> , the <|unk|> is <|unk|> <|endoftext|> sample2....
 multiSample1 ="Hello, the Weather is Glacial"
 multiSample2 ="Yes, it is rather Frigid today."
-multiTextBatchSample = " <|endoftext|> ".join((multiSample1, multiSample2))\
+multiTextBatchSample = " <|endoftext|> ".join((multiSample1, multiSample2))
 
 encodeTest2 = tokenizer.encode(multiTextBatchSample)
 decodeTest2 = tokenizer.decode(encodeTest2)
