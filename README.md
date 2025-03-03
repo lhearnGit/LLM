@@ -12,3 +12,9 @@ As It was created as a learning exercise, and I do not claim credit for any pure
 While there may be slight differences in names, structures and breakdowns of the program produced by following the book
 the underlying methodologies have been derived from said book, written by Sebastian Raschka, to who all credit is due.
 
+
+As of 3/3/2025 
+
+THIS REPOSITORY IS NOT PACKAGED TO BE PULLED AND RAN WITHOUT MANUAL CONFIGURATION AND SETUP.
+THIS REPOSITORY ASSUMES THAT A CUDA COMPATIBLE GPU IS USED, I AM UNAWARE OF THE INPUT/OUTPUT DIFFERENCES RESULTING FROM USING THE CPU-ONLY VARIANT OF PYTORCH
+
