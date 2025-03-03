@@ -1,0 +1,25 @@
+
+This Project uses the following PyTorch version, the install command is below
+
+
+ENSURE THAT YOUR PYTORCH VERSION IS SUPPORTED BY YOUR HARDWARE
+if you do not have a CUDA compatable GPU, you will need to install the CPU variant of PyTorch.
+if you have a CUDA compatible GPU you need to ensure the version of CUDA is supported by your GPU for the version you install
+CUDA versions are backwards compatible
+
+To check your Cuda version go to command prompt and run
+
+nvidia-smi
+
+GPU used - Nvidia RTX 4070 - CUDA VERSION - 12.8
+pip install torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --index-url https://download.pytorch.org/whl/cu124
+
+
+
+on some windows environments you may run into an error about "failing to import pytorch-fbgemm-dll..." 
+Check that ibomp140.x86_64.dll in System32 it is required to run PyTorch and was the missing dependency for my system.
+
+https://discuss.pytorch.org/t/failed-to-import-pytorch-fbgemm-dll-or-one-of-its-dependencies-is-missing/201969/11
+
+This may not be the solution for anyone using this application, If this error occurs, please troubleshoot accordingly.
+
