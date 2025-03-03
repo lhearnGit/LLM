@@ -13,5 +13,5 @@ class SimpleTokenizerV1:
     
     def decode(self, ids):
         text = " ".join([self.int_to_str[number] for number in ids])
-        text = re.sub(r'([,.:;?_!"()\']|--|\s)',r'\1', text)
+        text = re.sub(r'\s+([,.:;?_!"()\']|--|\s])',r'\1', text)
         return text
