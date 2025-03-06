@@ -36,21 +36,29 @@ class SelfAttention_V2(nn.Module):
             attn_scores / keys.shape[-1]**0.5, dim=-1
         )
 
+        context_length = attn_scores.shape[0]
+
+        # Basic Masking 
+        # generate a masking above the diagonal with zeros
+        # mask_simple = torch.tril(torch.ones(context_length, context_length))
+        # print(mask_simple)
+
+        # apply mask to weights
+        # masked_simple = attn_weights * mask_simple
+
+        mask = torch.triu(torch.ones(context_length, context_length), diagonal=1)
+        masked = attn_scores.masked_fill(mask.bool(), -torch.inf)
+        print(masked)
+
+        # ensure that weightings sum to 1
+        torch.manual_seed(123)
+        Dropout = torch.nn.Dropout(0.5) # will drop 50% of the values
+        example = torch.ones(6,6)
+        print(Dropout(attn_weights))
+        weights = torch.softmax(masked / keys.shape[-1]**0.5, dim=1)
+        print(weights)
         context_vec = attn_weights @ values
         return context_vec
-    
-    def getWeights(self, x):
-        keys =  self.W_key(x) # using Linear, pass in the input tensor 
-        queries =  self.W_query(x)
-        values =  self.W_value(x)
-
-        #Calculate the attention scores for the input x,
-        attn_scores = queries @ keys.T # Omega Values
-        #perform softmax calculation to reduce down to sums of 1
-        attn_weights = torch.softmax(
-            attn_scores / keys.shape[-1]**0.5, dim=-1
-        )
-        return attn_weights
 
 
 torch.manual_seed(789)
