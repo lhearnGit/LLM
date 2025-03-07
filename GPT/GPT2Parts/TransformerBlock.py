@@ -1,18 +1,8 @@
 import torch.nn as nn
-import torch
-from MultiHeadedAttention import MultiHeadedAttention
-from LayerNorm import LayerNorm as LayerNorm
-from FeedForward import FeedForward
+from GPT2Parts.FeedForward import FeedForward
+from GPT2Parts.LayerNorm import LayerNorm
+from GPT2Parts.MultiHeadedAttention import MultiHeadedAttention
 
-GPT_CONFIG_124M = {
-    "vocab_size":50257, #Vocab Size, number of BPE Tokens
-    "context_length":1024, #minimum context block size for gpt2
-    "emb_dim":768, #minimum embed dims for gpt2
-    "n_heads":12, 
-    "n_layers":12,
-    "drop_rate":.1,
-    "qkv_bias":False
-}
 
 class TransformerBlock(nn.Module):
     def __init__(self, cfg):
@@ -47,11 +37,11 @@ class TransformerBlock(nn.Module):
         return x
 
 
-torch.manual_seed(123)
+# torch.manual_seed(123)
 
-x = torch.rand(2, 4, 768)  # Shape: [batch_size, num_tokens, emb_dim]
-block = TransformerBlock(GPT_CONFIG_124M)
-output = block(x)
+# x = torch.rand(2, 4, 768)  # Shape: [batch_size, num_tokens, emb_dim]
+# block = TransformerBlock(GPT_CONFIG_124M)
+# output = block(x)
 
-print("Input shape:", x.shape)
-print("Output shape:", output.shape)
+# print("Input shape:", x.shape)
+# print("Output shape:", output.shape)

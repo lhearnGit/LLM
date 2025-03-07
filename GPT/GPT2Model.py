@@ -1,8 +1,8 @@
 import torch.nn as nn
 import torch
-from GPT2Parts.TransformerBlock import TransformerBlock
-from GPT2Parts.LayerNorm import LayerNorm
 
+from GPT2Parts.LayerNorm import LayerNorm
+from GPT2Parts.TransformerBlock import TransformerBlock
 
 GPT_CONFIG_124M = {
     "vocab_size":50257, #Vocab Size, number of BPE Tokens
