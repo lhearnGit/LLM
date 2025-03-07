@@ -2,3 +2,10 @@
 TokenizationConcepts/__pycache__
 DataLoader/GPTV1/__pycache__
 GPT2Model/__pycache__
+GPT2Model/GPT2Parts/__pycache__
+
+__pycache__
+
+
+#test file playground
+PyTorchTests.py
