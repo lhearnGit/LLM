@@ -4,15 +4,7 @@ import torch
 from GPT2Parts.LayerNorm import LayerNorm
 from GPT2Parts.TransformerBlock import TransformerBlock
 
-GPT_CONFIG_124M = {
-    "vocab_size":50257, #Vocab Size, number of BPE Tokens
-    "context_length":1024, #minimum context block size for gpt2
-    "emb_dim":768, #minimum embed dims for gpt2
-    "n_heads":12, 
-    "n_layers":12,
-    "drop_rate":.1,
-    "qkv_bias":False
-}
+
 
 class GPT2Model(nn.Module):
     def __init__(self, cfg):

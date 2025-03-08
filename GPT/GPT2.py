@@ -1,7 +1,17 @@
 import torch
 import tiktoken
-from GPT2Model import GPT2Model, GPT_CONFIG_124M
+from GPT2Model import GPT2Model
 
+
+GPT_CONFIG_124M = {
+    "vocab_size":50257, #Vocab Size, number of BPE Tokens
+    "context_length":1024, #minimum context block size for gpt2
+    "emb_dim":768, #minimum embed dims for gpt2
+    "n_heads":12, 
+    "n_layers":12,
+    "drop_rate":.1,
+    "qkv_bias":False
+}
 
 torch.manual_seed(123)
 model = GPT2Model(GPT_CONFIG_124M)
