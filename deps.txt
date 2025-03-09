@@ -1,0 +1,13 @@
+
+
+matplotlib > 3.7.1
+    pip install matplotlib 
+
+BPE Encoder
+    pip install tiktoken
+
+numPy has a version error unless sub 2
+    pip install numpy<2
+
+Use appropriate torch type for your GPU if no cuda gpu use CPU
+    pip install torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --index-url https://download.pytorch.org/whl/cu124
