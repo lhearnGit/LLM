@@ -2,3 +2,5 @@ __pycache__
 .venv
 loss.pdf
 model.pth
+
+gpt2/*

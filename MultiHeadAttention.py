@@ -6,16 +6,18 @@ class MultiHeadAttention(nn.Module):
         super().__init__()
         assert (d_out % num_heads == 0), \
                 "d_out must be divisible by num_heads"
+
+        self.d_out = d_out
         self.num_heads = num_heads
         self.head_dim = d_out // num_heads
 
-        self.d_out = d_out
         self.W_query = nn.Linear(d_in, d_out, bias=qkv_bias)
         self.W_key = nn.Linear(d_in, d_out, bias=qkv_bias)
         self.W_value = nn.Linear(d_in, d_out, bias=qkv_bias)
 
         self.out_proj = nn.Linear(d_out, d_out)
         self.dropout = nn.Dropout(dropout)
+        
         self.register_buffer('mask',torch.triu(torch.ones(context_length,context_length), diagonal=1))
 
     def forward(self, x):
@@ -47,8 +49,9 @@ class MultiHeadAttention(nn.Module):
 
         context_vector = (attention_weights @ values).transpose(1,2)
 
-        context_vector = context_vector.contiguous().view(b,num_tokens,self.d_out)
-        context_vector = self.out_proj(context_vector)
+        context_vector = context_vector.reshape(b, num_tokens, self.d_out)
+        context_vector = self.out_proj(context_vector)  # optional projection
+        
         return context_vector
     
 

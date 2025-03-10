@@ -6,7 +6,7 @@ import torch
 
 class GELU (nn.Module):
     def __init__(self):
-        super().__init__( )
+        super().__init__()
     def forward(self,x):
         return .5 * x * (1 + torch.tanh(
             torch.sqrt(torch.tensor(2 / torch.pi )) *  
